@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./EduHub-Backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./EduHub-Backend:/rails
+    networks:
+      - app-network
+    environment:
+      - RAILS_ENV=development
+      - SECRET_KEY_BASE=d10b32a3d24adb0d37940dfa49d7c01be719258a095e1d14907445500eb2647dae614e93ee2c6a823e06fc07a743c5e0360c55b41459f0d47791b9e4cafddec7
+
+  frontend:
+    build:
+      context: ./EduHub-Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:5000
+
+networks:
+  app-network:
+    driver: bridge
