@@ -1,0 +1,6 @@
+[submodule "EduHub-Frontend"]
+	path = EduHub-Frontend
+	url = https://github.com/BOThiago/EduHub-Frontend
+[submodule "EduHub-Backend"]
+	path = EduHub-Backend
+	url = https://github.com/BOThiago/EduHub-Backend
